@@ -16,15 +16,21 @@
 //? Sliding pieces (Bishop, Rook, Queen)
 // Loop over 8 different directions, and loop over number of squares to the edge in that direction (Using prepared function from earlier)
 // Use direction offsets to check this
-// Skip further if there is a friendly piece in the way
-// Skip further if there is an enemy piece in the way (After adding that piece)
+// Skip further checks if there is a friendly piece in the way
+// Skip further checks if there is an enemy piece in the way (After adding that piece)
 // Add logic so that Bishop checks the last 4 offsets (Horizontal), and Rook checks first 4 (straight). Queen can use all 8. 
 
 //? King
 // Uses direction offsets to check all adjacent squares 
+// Skip check if there is a friendly piece in the way
+// Add checks if there is an enemy piece in the way
 // Uses boolean state to determine if king can castle
 
 //? Pawns
+// Checks square directly in front to check if pawn is allowed to push (using directional offsets, checks if there is any piece)
+// Checks offsets 7 and 9 (front diagonal) to see if there is an enemy piece for there (skips if friendly piece)
+// Uses boolean logic to see if pawn is on first rank (checks 2 spots infront)
+// Checks offsets 1 and -1 to check if there is an enemy piece. If there is, pass in en passant as a legal move
 
 //? Knight
 
