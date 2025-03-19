@@ -3,6 +3,8 @@
 
 
 //* Create a vector of direction offsets (8, -8, 1, -1, 7, -7, 9, -9)
+//* */ Also create a vector of knight movement offsets (TBD)
+
 //* Precompute the number of squares to the edge at any position, and store in an array
 
 //* Create struct for Moves:
@@ -33,6 +35,12 @@
 // Checks offsets 1 and -1 to check if there is an enemy piece. If there is, pass in en passant as a legal move
 
 //? Knight
+// Use custom made knight offsets vector to determine possible moves
+// Checks if possible positions are off the board (< 1 or > 64), and exterminates impossible moves.
+// Checks if there are friendly pieces in the way, and exterminates impossible moves.
+
+
+
 
 //! Generate legal moves given pseudo-legal moves
 
