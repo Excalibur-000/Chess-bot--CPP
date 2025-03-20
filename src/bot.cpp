@@ -67,10 +67,21 @@ struct Moves {
 //! Generate legal moves given pseudo-legal moves
 
 
-int main() {
+
+
+
+
+
+
+
+
+
+
+
+
+int testComputeFunc() {
     std::vector<std::vector<int>> NumSquaresToEdge = computeNumSquaresToEdge();
 
-    // Print the results for all squares
     for (int i = 0; i < 64; ++i) {
         std::cout << "Square " << (i + 1) << ": ";
         std::cout << "North = " << NumSquaresToEdge[i][0] << ", ";
