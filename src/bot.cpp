@@ -23,6 +23,7 @@ std::vector<std::vector<int>> computeNumSquaresToEdge() {
       NumSquaresToEdge[i][3] = col;
   }
 
+  // NOTE: Index of square is square value - 1
   return NumSquaresToEdge;
 }
 
