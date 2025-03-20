@@ -2,14 +2,30 @@
 #include <vector>
 
 
-//* Create a vector of direction offsets (8, -8, 1, -1, 7, -7, 9, -9)
-//* */ Also create a vector of knight movement offsets (TBD)
+//* Create a vector of direction offsets. Precompute no of squares to edge
+std::vector<int> dir_offset = {8, -8, 1, -1, 7, -7, 9, -9};
+std::vector<int> knight_offsets = {17, -17, 6, -6};
+std::vector<int> NumSquaresToEdge;
 
-//* Precompute the number of squares to the edge at any position, and store in an array
+void ComputeEdgeSquares() {
+  for (int file = 0; file < 8; file++) {
+    for (int rank = 0; rank < 8; rank++) {
+
+      int numNorth = 7 - rank;
+      int numSouth = file;
+      int numWest = rank;
+      int numEast = 7 - file;
+
+      // Incomplete
+    }
+  }
+}; 
 
 //* Create struct for Moves:
-//* - Start square
-//* - End square
+struct Moves {
+  int Startpos;
+  int Endpos;
+};
 
 
 //! Generate pseudo-legal moves for a given position
