@@ -1,25 +1,30 @@
 #include <cmath>
-#include <vector>
+#include <vector> 
+#include <iostream>
 
 
 //* Create a vector of direction offsets. Precompute no of squares to edge
 std::vector<int> dir_offset = {8, -8, 1, -1, 7, -7, 9, -9};
 std::vector<int> knight_offsets = {17, -17, 6, -6};
-std::vector<int> NumSquaresToEdge;
 
-void ComputeEdgeSquares() {
-  for (int file = 0; file < 8; file++) {
-    for (int rank = 0; rank < 8; rank++) {
+//* Precompute amount of squares to end of board from specific position (multi-dimensional array)
+std::vector<std::vector<int>> computeNumSquaresToEdge() {
+  // Creates vector which has size of 64 times each direction
+  std::vector<std::vector<int>> NumSquaresToEdge(64, std::vector<int>(4));
 
-      int numNorth = 7 - rank;
-      int numSouth = file;
-      int numWest = rank;
-      int numEast = 7 - file;
+  for (int i = 0; i < 64; ++i) {
+      // Compute the row and column of the current square
+      int row = i / 8; 
+      int col = i % 8;  
 
-      // Incomplete
-    }
+      NumSquaresToEdge[i][0] = row;
+      NumSquaresToEdge[i][1] = 7 - row;
+      NumSquaresToEdge[i][2] = 7 - col;
+      NumSquaresToEdge[i][3] = col;
   }
-}; 
+
+  return NumSquaresToEdge;
+}
 
 //* Create struct for Moves:
 struct Moves {
@@ -60,5 +65,20 @@ struct Moves {
 
 //! Generate legal moves given pseudo-legal moves
 
+
+int main() {
+    std::vector<std::vector<int>> NumSquaresToEdge = computeNumSquaresToEdge();
+
+    // Print the results for all squares
+    for (int i = 0; i < 64; ++i) {
+        std::cout << "Square " << (i + 1) << ": ";
+        std::cout << "North = " << NumSquaresToEdge[i][0] << ", ";
+        std::cout << "South = " << NumSquaresToEdge[i][1] << ", ";
+        std::cout << "East = " << NumSquaresToEdge[i][2] << ", ";
+        std::cout << "West = " << NumSquaresToEdge[i][3] << std::endl;
+    }
+
+    return 0;
+}
 
 
