@@ -17,8 +17,8 @@ std::vector<std::vector<int>> computeNumSquaresToEdge() {
       int row = i / 8; 
       int col = i % 8;  
 
-      NumSquaresToEdge[i][0] = row;
-      NumSquaresToEdge[i][1] = 7 - row;
+      NumSquaresToEdge[i][0] = 7 - row;
+      NumSquaresToEdge[i][1] = row;
       NumSquaresToEdge[i][2] = 7 - col;
       NumSquaresToEdge[i][3] = col;
   }
@@ -79,7 +79,7 @@ struct Moves {
 
 
 
-int testComputeFunc() {
+void testComputeFunc() {
     std::vector<std::vector<int>> NumSquaresToEdge = computeNumSquaresToEdge();
 
     for (int i = 0; i < 64; ++i) {
@@ -89,8 +89,9 @@ int testComputeFunc() {
         std::cout << "East = " << NumSquaresToEdge[i][2] << ", ";
         std::cout << "West = " << NumSquaresToEdge[i][3] << std::endl;
     }
-
-    return 0;
 }
 
-
+int main() {
+  testComputeFunc();
+  return 0;
+}
